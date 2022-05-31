@@ -206,21 +206,18 @@ class Canvas2(FigureCanvas,threading.Thread):  # 畫布二 自行成一個執行
                         if predict != b'':
                             print(predict)
                             new_data2 = np.array(result)
-                            #new_data3 = np.delete(new_data2, 0 ,axis = 1)
                             self.ax.clear()
                             self.ax.grid()
-                            print(new_data2.shape[0])
                             t = np.arange(0.0, new_data2.shape[0], 1)
-                            x = np.arange(0,(new_data2.shape[0]),1)
-                            # print(data,'after---------------')
+                            x = np.arange(0.0,1.02,0.02)
                             data = np.transpose(new_data2)
                             try:
                                 self.ax.plot(x, data[0][0:len(t)])
                                 self.ax.plot(x, data[1][0:len(t)])
                                 self.ax.plot(x, data[2][0:len(t)])
-                                self.ax.legend(['x-acc','y-acc','z-acc'])
+                                self.ax.legend(['x-axis','y-axis','z-axis'])
                                 print('plot arc here')
-                                self.ax.set(xlabel='time (s)', ylabel='voltage (mV)',title = self.label_class[int(predict.hex())])
+                                self.ax.set(xlabel='Time (s)', ylabel='Acceleration (g)',title = self.label_class[int(predict.hex())])
                             except:
                                 break
                             self.fig.canvas.draw_idle() 
