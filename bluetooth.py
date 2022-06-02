@@ -209,7 +209,7 @@ class Canvas2(FigureCanvas,threading.Thread):  # 畫布二 自行成一個執行
                             self.ax.clear()
                             self.ax.grid()
                             t = np.arange(0.0, new_data2.shape[0], 1)
-                            x = np.arange(0.0,1.02,0.02)
+                            x = np.arange(0.0,new_data2.shape[0]/50,0.02)
                             data = np.transpose(new_data2)
                             try:
                                 self.ax.plot(x, data[0][0:len(t)])
