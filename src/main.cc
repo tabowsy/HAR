@@ -324,8 +324,15 @@ int main(int argc, char* argv[])
 		delay_us(10);
 		if (counter >= 51)
 		{
+			uint32_t tick_start = 0, tick_end = 0;
+			hx_drv_uart_initial(UART_BR_115200);
+			hx_drv_tick_start();
+			hx_drv_tick_get(&tick_start);
 
 			loop_har(x_data,&signal_pass);
+
+			hx_drv_tick_get(&tick_end);
+			hx_drv_uart_print("time used: %d (msec)\n", (tick_end - tick_start) / 400000); // 4 MHz tick
 			label = signal_pass;
 			GPIO_UART_TX(&label,1,&hal_gpio_ZERO);
 		

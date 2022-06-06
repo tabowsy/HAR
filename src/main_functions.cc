@@ -145,6 +145,8 @@ void setup() {
   micro_op_resolver.AddConcatenation();
   micro_op_resolver.AddRelu();
   micro_op_resolver.AddSplit();
+  micro_op_resolver.AddQuantize();
+  micro_op_resolver.AddDequantize();
 
   // Build an interpreter to run the model with.
   // NOLINTNEXTLINE(runtime-global-variables)
