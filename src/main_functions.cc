@@ -136,7 +136,7 @@ void setup() {
   // tflite::AllOpsResolver resolver;
   // NOLINTNEXTLINE(runtime-global-variables)
   
-  static tflite::MicroMutableOpResolver<8> micro_op_resolver;
+  static tflite::MicroMutableOpResolver<10> micro_op_resolver;
   micro_op_resolver.AddConv2D();
   micro_op_resolver.AddMaxPool2D();
   micro_op_resolver.AddFullyConnected();
